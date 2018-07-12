@@ -1,0 +1,17 @@
+server:
+  port: 8883 
+  
+spring:
+  application:
+    name: scheduled-task
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+      
+scheduled:
+  #fixedRate: 2000
+  cron: 0/10 * *  * * ?

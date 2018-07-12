@@ -1,0 +1,36 @@
+server:
+  port: 8881 
+  
+spring:
+  application:
+    name: feign-demo
+    
+feign:
+  hystrix:
+    enabled: true   # 启用hystrix
+  client:
+    config:
+      default:
+        connectTimeout: 5000
+        readTimeout: 5000
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 5000
+
+    
+eureka:
+  instance:
+    #hostname: localhost
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${server.port}:${spring.application.name}
+    
+  client:
+    serviceUrl:
+      #defaultZone: http://peer1:9998/eureka/,http://peer2:9999/eureka/,http://peer3:9997/eureka/
+      defaultZone: http://localhost:8888/eureka/

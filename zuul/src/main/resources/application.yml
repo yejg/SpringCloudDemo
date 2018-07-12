@@ -1,0 +1,30 @@
+spring:
+  application:
+    name: zuul
+    
+server:
+  port: 8884
+  
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${server.port}:${spring.application.name}
+    
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8888/eureka/
+
+#logging:
+#  level:
+#    com.netflix: DEBUG
+ 
+zuul:
+  include-debug-header: true
+  routes:
+    service:
+      path: /demo-service/**
+      service-id: demo-service
+      sensitive-headers:
+      strip-prefix: false
+

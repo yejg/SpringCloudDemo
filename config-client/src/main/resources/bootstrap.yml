@@ -1,0 +1,35 @@
+server:
+  port: 7002
+spring:
+  application:
+    name: config-client
+  cloud:
+    config:
+      discovery:
+        enabled: true
+        service-id: config-server
+      failFast: true
+      profile: dev
+
+eureka:
+  instance:
+    #hostname: localhost
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${server.port}:${spring.application.name}
+    status-page-url-path: /swagger-ui.html
+  client:
+    serviceUrl:
+      #defaultZone: http://peer1:9998/eureka/,http://peer2:9999/eureka/,http://peer3:9997/eureka/
+      defaultZone: http://localhost:8888/eureka/
+      
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        # include: refresh,health,info
+        include: '*'
+        
+        
+        

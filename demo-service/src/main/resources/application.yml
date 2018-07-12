@@ -1,0 +1,36 @@
+server:
+  port: 8889 
+  
+spring:
+  application:
+    name: demo-service
+
+eureka:
+  instance:
+    ip-address: 127.0.0.1
+    prefer-ip-address: true
+    instance-id: ${eureka.instance.ip-address}:${server.port}:${spring.application.name}
+    
+  client:
+    serviceUrl:
+      #defaultZone: http://peer1:9998/eureka/,http://peer2:9999/eureka/,http://peer3:9997/eureka/
+      defaultZone: http://localhost:8888/eureka/
+      
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*' 
+#     base-path: /sys
+#     path-mapping: 
+#        health: healthCheck     
+
+  endpoint:
+    shutdown:
+      enabled: true
+    health:
+      show-details: ALWAYS
+  
+info:
+  app:
+    version: v1.0    

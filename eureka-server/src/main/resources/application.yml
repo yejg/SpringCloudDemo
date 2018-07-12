@@ -1,0 +1,13 @@
+server:
+  port: 8888
+
+eureka:
+  instance:
+    hostname: localhost
+  client:
+    #是否向注册中心注册自己【自己就是注册中心，所以不需要注册自己】
+    registerWithEureka: false
+    #是否获取eureka注册中心上的注册信息【自己的职责就是维护服务，并不需要去检索服务】       
+    fetchRegistry: false            
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/  
