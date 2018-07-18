@@ -18,7 +18,9 @@ eureka:
 #logging:
 #  level:
 #    com.netflix: DEBUG
- 
+
+
+# 网关路由配置
 zuul:
   include-debug-header: true
   routes:
