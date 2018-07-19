@@ -20,7 +20,7 @@ eureka:
 #    com.netflix: DEBUG
 
 
-# 网关路由
+# 网关路由1
 zuul:
   include-debug-header: true
   routes:
