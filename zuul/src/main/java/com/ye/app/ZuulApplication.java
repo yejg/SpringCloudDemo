@@ -18,7 +18,7 @@ public class ZuulApplication {
 //		Pattern pattern = Pattern.compile("_crh_user=(.+?);");
 //		Matcher matcher = pattern.matcher("_crh_user=fdsaafsagagafgfgfdgfagad");
 //		System.out.println(matcher.find());
-		System.out.println("testtest");
+		System.out.println("testtest1111");
 		SpringApplication.run(ZuulApplication.class, args);
 	}
 }
